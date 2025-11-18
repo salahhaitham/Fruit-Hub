@@ -2,6 +2,7 @@ import 'package:ecommerce_app/Features/Auth/presentation/Views/Login_page.dart';
 import 'package:ecommerce_app/Features/Auth/presentation/Views/SignUp_pageView.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/Main_View.dart';
 import 'package:ecommerce_app/Features/Splash/presentation/Views/SplashView.dart';
+import 'package:ecommerce_app/Features/checkout/presentation/views/checkoutView.dart';
 import 'package:ecommerce_app/Features/onBoarding/presentation/views/onBoardingView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,8 @@ Route<dynamic> onGenerateRoute (RouteSettings settings){
       return MaterialPageRoute(builder: (context) => LoginPage(),);
     case MainView.routename:
       return MaterialPageRoute(builder: (context) => MainView(),);
+    case Checkoutview.routename:
+      return MaterialPageRoute(builder: (context) => Checkoutview(),);
   default:
     return MaterialPageRoute(builder: (context) => Scaffold(),);
 
