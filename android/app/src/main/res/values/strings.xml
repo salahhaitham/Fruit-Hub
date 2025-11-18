@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">ecommerce_fixed</string>
+
+    <!-- Facebook SDK -->
+    <string name="facebook_app_id">4062767997202698</string>
+    <string name="facebook_client_token">b77eb96f297af50457782fd216088be2</string>
+    <string name="fb_login_protocol_scheme">fb4062767997202698</string>
+</resources>
