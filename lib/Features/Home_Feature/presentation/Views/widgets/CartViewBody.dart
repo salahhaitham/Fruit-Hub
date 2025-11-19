@@ -62,7 +62,7 @@ class Cartviewbody extends StatelessWidget {
             right: 0,
             left: 0,
             bottom: MediaQuery.of(context).size.height * 0.07,
-            child: BlocBuilder<CartCubit,AddProductState>(
+            child: BlocBuilder<CartItemCubit,CartItemState>(
               builder: (context, state) =>
              CustomButton(
                 text:

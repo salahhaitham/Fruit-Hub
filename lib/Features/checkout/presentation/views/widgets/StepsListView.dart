@@ -9,7 +9,7 @@ class Stepslistview extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(getsteps().length, (index) {
-        return Expanded(child: Stepitem(text: getsteps()[index], index: index.toString()+1.toString(), isActive: true));
+        return Expanded(child: Stepitem(text: getsteps()[index], index: (index+1).toString(), isActive: true));
       })
     );
 
