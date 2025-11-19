@@ -10,6 +10,7 @@ static const String routename='checkoutview';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       resizeToAvoidBottomInset: false,
       appBar: buildAppBar(title: "الشحن",showArrowBack: false),
       body: Checkoutviewbody(),
     );

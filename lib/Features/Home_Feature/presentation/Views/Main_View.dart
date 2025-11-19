@@ -5,6 +5,7 @@ import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/C
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/HomeView.dart'
     show Homeview;
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/productsView.dart';
+import 'package:ecommerce_app/core/Helper_Functions/ShowSnackBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -95,12 +96,5 @@ class MainViewBody_BlocBuilder extends StatelessWidget {
         child: IndexedStack(children: screens, index: currentViewIndex));
   }
 
-  ScaffoldMessengerState showSnackBar(BuildContext context,String text) {
 
-    return ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-                SnackBar(content: Text(text))
-            );
-  }
 }
