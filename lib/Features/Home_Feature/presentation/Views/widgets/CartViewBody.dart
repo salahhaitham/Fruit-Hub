@@ -6,6 +6,7 @@ import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/C
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/ProductsHeader.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/SearchTextfield.dart';
 import 'package:ecommerce_app/Features/checkout/presentation/views/checkoutView.dart';
+import 'package:ecommerce_app/core/Helper_Functions/ShowSnackBar.dart';
 import 'package:ecommerce_app/core/widgets/Custom_Button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,11 @@ class Cartviewbody extends StatelessWidget {
                     "الدفع  ${context.watch<CartCubit>().cartEntity.CaluculateTotalPrice()}جنيه"
                 ,
                 onpress: () {
-                    Navigator.pushNamed(context, Checkoutview.routename);
+                  if(context.read<CartCubit>().cartEntity.cartItems.isNotEmpty){
+                    Navigator.pushNamed(context, Checkoutview.routename,arguments: context.read<CartCubit>().cartEntity);
+                  }else{
+                    showSnackBar(context, "يرجي اضافة منتج الي السلة ");
+                  }
 
                 },
               ),

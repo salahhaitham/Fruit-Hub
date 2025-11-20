@@ -1,22 +1,27 @@
-import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/ActiveStepView.dart';
-import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/Adress_Section.dart';
+import 'package:ecommerce_app/Features/Home_Feature/domain/entites/CartEntity.dart';
+import 'package:ecommerce_app/Features/checkout/domain/entities/AddressEntity.dart';
+import 'package:ecommerce_app/Features/checkout/domain/entities/OrderEntity.dart';
+
 import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/CheckoutStepsView.dart';
-import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/InActiveStepView.dart';
-import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/Payment_Section.dart';
-import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/ShippingSection.dart';
+
 import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/StepsListView.dart';
+import 'package:ecommerce_app/core/Helper_Functions/ShowSnackBar.dart';
 import 'package:ecommerce_app/core/widgets/Custom_Button.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Checkoutviewbody extends StatefulWidget {
-  const Checkoutviewbody({Key? key}) : super(key: key);
-
+  const Checkoutviewbody({Key? key,required this.cartEntity}) : super(key: key);
+final CartEntity cartEntity;
   @override
   State<Checkoutviewbody> createState() => _CheckoutviewbodyState();
 }
 
 class _CheckoutviewbodyState extends State<Checkoutviewbody> {
  late PageController pageController;
+ GlobalKey<FormState>formkey=GlobalKey();
+ValueNotifier<AutovalidateMode>autoValidate=ValueNotifier(AutovalidateMode.disabled);
+
  int currentIndex=0;
  @override
   void initState() {
@@ -32,6 +37,7 @@ class _CheckoutviewbodyState extends State<Checkoutviewbody> {
   @override
   void dispose() {
     pageController.dispose();
+    autoValidate.dispose();
     super.dispose();
   }
   @override
@@ -44,11 +50,16 @@ class _CheckoutviewbodyState extends State<Checkoutviewbody> {
         children: [
           SizedBox(height: 20),
           Stepslistview(currentIndex:currentIndex,pageController: pageController,),
-          CheckoutStepsView(pageController: pageController),
+          CheckoutStepsView(pageController: pageController,formKey: formkey,autoValidate: autoValidate,),
           CustomButton(text: getNextBottonText(currentIndex)
             , onpress: () {
-            pageController.animateToPage(currentIndex+1, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
-          },),
+              if (currentIndex == 0) {
+                checkToShippingSection();
+              }else if(currentIndex==1){
+
+          checkToAdressSection();
+              }
+            },),
           SizedBox(height: MediaQuery.of(context).size.height*0.2,),
         ],
       ),
@@ -68,12 +79,36 @@ class _CheckoutviewbodyState extends State<Checkoutviewbody> {
    }
 
  }
-}
+ void checkToAdressSection(){
+   bool isValid = formkey.currentState!.validate();
+
+   if (isValid) {
+
+     formkey.currentState!.save();
 
 
-List<Widget>getSteps=[
-  Shippingsection(),
-  AddressSection(),
-  PaymentSection()
+     pageController.animateToPage(
+       currentIndex+1,
+       duration: Duration(milliseconds: 300),
+       curve: Curves.ease,
+     );
+   } else {
 
-];
+     autoValidate.value=AutovalidateMode.always;
+     showSnackBar(context, "من فضلك أكمل البيانات");
+   }
+ }
+ void checkToShippingSection(){
+   if (context.read<OrderEntity>()
+       .payWithCash != null) {
+
+     pageController.animateToPage(
+         currentIndex + 1, duration: Duration(milliseconds: 300),
+         curve: Curves.easeIn);
+   } else {
+     showSnackBar(context, "برجاء اختيار طريقة الدفع ");
+   }
+ }
+ }
+
+
