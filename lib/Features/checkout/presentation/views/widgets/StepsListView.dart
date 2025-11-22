@@ -17,6 +17,7 @@ class Stepslistview extends StatelessWidget {
         return Expanded(
           child: GestureDetector(
               onTap: () {
+
                 if(context.read<OrderEntity>().payWithCash!=null) {
                   pageController.animateToPage(
                       index, duration: Duration(milliseconds: 300),

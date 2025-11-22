@@ -1,8 +1,9 @@
 
 import 'package:ecommerce_app/Features/Home_Feature/domain/entites/CartEntity.dart';
-import 'package:ecommerce_app/Features/checkout/domain/entities/AddressEntity.dart';
+import 'package:ecommerce_app/Features/checkout/domain/entities/ShippingAddressOrderEntity.dart';
 import 'package:ecommerce_app/Features/checkout/domain/entities/OrderEntity.dart';
 import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/CheckoutViewBody.dart';
+import 'package:ecommerce_app/core/Helper_Functions/getuser.dart';
 import 'package:ecommerce_app/core/widgets/CustomAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,9 @@ final CartEntity cartEntity;
     return Scaffold(
        resizeToAvoidBottomInset: false,
       appBar: buildAppBar(title: "الشحن",showArrowBack: false),
-      body: Provider.value(
-          value: OrderEntity(cartEntity,AddressOrderEntity(),null) ,
-          child: Checkoutviewbody(cartEntity:cartEntity ,)),
-    );
+      body:Provider<OrderEntity>(
+      create: (_) => OrderEntity(cartEntity,getUser().Uid,ShippingAddressOrderEntity(),null),
+    child: Checkoutviewbody(cartEntity: cartEntity),
+    ));
   }
 }

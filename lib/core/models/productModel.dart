@@ -1,9 +1,5 @@
-import 'dart:io';
-import 'dart:math';
 
-import 'package:ecommerce_app/core/entities/reviewEntity.dart';
 import 'package:ecommerce_app/core/models/reviewModel.dart';
-
 import '../entities/productEntity.dart';
 
 class productmodel {

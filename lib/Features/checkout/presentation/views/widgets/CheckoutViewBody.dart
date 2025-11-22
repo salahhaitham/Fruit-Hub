@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/Features/Home_Feature/domain/entites/CartEntity.dart';
-import 'package:ecommerce_app/Features/checkout/domain/entities/AddressEntity.dart';
+import 'package:ecommerce_app/Features/checkout/domain/entities/ShippingAddressOrderEntity.dart';
 import 'package:ecommerce_app/Features/checkout/domain/entities/OrderEntity.dart';
 
 import 'package:ecommerce_app/Features/checkout/presentation/views/widgets/CheckoutStepsView.dart';

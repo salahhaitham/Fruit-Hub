@@ -17,7 +17,7 @@ class CartHeader extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          'لديك 3 منتجات في سله التسوق',
+          'لديك 1 منتجات في سله التسوق',
           style: TextStyle(
             color: const Color(0xFF1B5E37) /* Green1-500 */,
             fontSize: 13,

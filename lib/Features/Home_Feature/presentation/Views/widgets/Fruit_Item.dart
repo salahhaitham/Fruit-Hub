@@ -30,7 +30,7 @@ class FruitItem extends StatelessWidget {
               child: Column(
             children: [
               SizedBox(height: 20,),
-              Flexible(child: Image.network(productItem.imageUrl??"")),
+              Flexible(child: Image.network(productItem.imageUrl??"",)),
               SizedBox(height: 24,),
               ListTile(
                 title:   Text(
