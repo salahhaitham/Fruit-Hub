@@ -49,4 +49,17 @@ class CartEntity {
     }
     return CartItemEntity(productEntity: product);
   }
+  getShippingPrice(){
+    return 0;
+  }
+  getShippingDiscount(){
+    return 0;
+  }
+  getCurrency(){
+    return "EGP";
+  }
+  getTotalPriceAfterShippingAndShippingdiscount(){
+    return CaluculateTotalPrice()+getShippingPrice()-getShippingDiscount();
+
+  }
 }
