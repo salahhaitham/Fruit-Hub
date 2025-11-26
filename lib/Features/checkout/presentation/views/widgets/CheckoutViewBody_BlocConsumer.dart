@@ -13,18 +13,15 @@ class CheckoutviewbodyBlocconsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<OrdersCubit, OrdersState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if(state is OrdersSuccess) {
+          showSnackBar(context, "تمت العملية بنجاح");
+        }
+      },
 
       builder: (context, state) {
-        if (state is OrdersSuccess){
-          log("succes");
-        return widget;}
-        else if(state is OrdersFailure){
-         showSnackBar(context, "proccess failed");
-        }
-        else if(state is OrdersLoading){
-          return ModalProgressHUD(inAsyncCall: true, child: widget) ;
-        }
+
+
      return  widget;
       },
     );

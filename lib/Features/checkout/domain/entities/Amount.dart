@@ -17,7 +17,7 @@
     factory Amount.fromEntity(CartEntity entity){
       return Amount(
         total: entity.getTotalPriceAfterShippingAndShippingdiscount().toString(),
-      currency:entity.getCurrency(),
+      currency:"USD",
         details:Details.fromEntity(entity)
       );
     }

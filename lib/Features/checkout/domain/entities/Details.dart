@@ -19,7 +19,7 @@ class Details {
   }
 factory Details.fromEntity(CartEntity entity){
     return Details(
-      shipping: entity.getShippingPrice(),
+      shipping: entity.getShippingPrice().toString(),
       subtotal: entity.CaluculateTotalPrice().toString(),
       shippingDiscount: entity.getShippingDiscount()
     );

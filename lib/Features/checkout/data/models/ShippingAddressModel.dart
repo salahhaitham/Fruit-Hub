@@ -7,13 +7,15 @@ class ShippingAddressOrderModel {
   String? address;
   String? city;
   String? floorNumber;
+  String? phoneNumber;
 
   ShippingAddressOrderModel({
    required this.name,
    required this.email,
    required this.address,
    required this.city,
-   required this.floorNumber
+   required this.floorNumber,
+    required this.phoneNumber
   });
 
   factory ShippingAddressOrderModel.fromEntity(ShippingAddressOrderEntity address){
@@ -22,7 +24,9 @@ class ShippingAddressOrderModel {
         email: address.email,
         address: address.address,
         city: address.city,
-        floorNumber: address.floorNumber);
+        floorNumber: address.floorNumber,
+        phoneNumber: address.phoneNumber
+    );
 
   }
   toJson(){
@@ -31,7 +35,8 @@ class ShippingAddressOrderModel {
       "email":email,
       "address":address,
       "city":city,
-      "floornumber":floorNumber
+      "floornumber":floorNumber,
+      "phonenumber":phoneNumber
     };
   }
 

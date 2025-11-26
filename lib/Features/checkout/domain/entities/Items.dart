@@ -26,7 +26,7 @@ factory Items.fromEntity(CartItemEntity entity){
     return Items(
       name:entity.productEntity.name ,
       price:entity.productEntity.price.toString() ,
-      currency:"EGP" ,
+      currency:"USD" ,
       quantity:entity.count
     );
 }

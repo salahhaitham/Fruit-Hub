@@ -54,6 +54,7 @@ class _AddressSectionState extends State<AddressSection> with AutomaticKeepAlive
                   context.read<OrderEntity>().shippingAddressOrderEntity!.floorNumber=value!;
                 },
                 hintText:'رقم الطابق.رقم الشقة..',),
+
               SizedBox(height: 8,),
 
             ],

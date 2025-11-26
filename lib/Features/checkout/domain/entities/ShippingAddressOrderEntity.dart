@@ -4,6 +4,7 @@ class ShippingAddressOrderEntity {
   String? address;
   String? city;
   String? floorNumber;
+  String? phoneNumber;
 
   ShippingAddressOrderEntity({
     this.name = "",
@@ -11,6 +12,7 @@ class ShippingAddressOrderEntity {
     this.address = "",
     this.city = "",
     this.floorNumber = "",
+    this.phoneNumber="",
   });
   @override
   String toString() {

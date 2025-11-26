@@ -11,7 +11,7 @@ import '../Services/ShearedPreferenceSinglton.dart';
   UserEntity getUser(){
 
       var userdata = SharedPrefernceSinglton.getString(Kuserdata);
-    if( userdata ==null){return UserEntity(email: "", Uid: "", UserName: "");}
+    if( userdata ==null){return UserEntity(email: "", Uid: "", UserName: "salah");}
       var userentity=UserModel.fromjson(jsonDecode(userdata));
       return userentity;
     }

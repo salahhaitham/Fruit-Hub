@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/Features/Home_Feature/manager/products_cubit/products_cubit.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/GridViewFruitItem_BlocBuilder.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/CustomAppBar.dart';
 import 'ProductsHeader.dart';
@@ -21,7 +23,7 @@ class Productsviewbody extends StatelessWidget {
                 SizedBox(height: 12),
                 Searchtextfield(),
                 SizedBox(height: 12),
-                productsHeader(numberOfProducts: 0),
+                productsHeader(numberOfProducts:context.watch<ProductsCubit>().ProductsList.length),
                 SizedBox(height: 8),
               ],
             ),

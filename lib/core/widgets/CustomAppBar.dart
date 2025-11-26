@@ -8,13 +8,15 @@ AppBar buildAppBar({context, required String title, bool showNotificationIcon=fa
   return AppBar(
     centerTitle: true,
     title: Text(title,style: AppTextStyles.body19Bold,),
-   leading: Icon(Icons.arrow_back_ios),
+   leading: Visibility(
+       visible: showArrowBack,
+       child: Icon(Icons.arrow_back_ios)),
     actions: [
       Visibility(
         visible:showNotificationIcon ,
         child: IconButton(
           onPressed: () {
-
+         
           },
           icon:Notification_Widget(),
         ),

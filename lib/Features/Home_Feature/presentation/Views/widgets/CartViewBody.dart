@@ -34,11 +34,11 @@ class Cartviewbody extends StatelessWidget {
                     buildAppBar(
                       context: context,
                       title: "السلة",
-                      showArrowBack: true,
+                      showArrowBack: false,
                       showNotificationIcon: false,
                     ),
                     SizedBox(height: 16),
-                    CartHeader(),
+                    CartHeader(productsNuber: context.read<CartCubit>().cartEntity.cartItems.length,),
                     SizedBox(height: 24),
                   ],
                 ),

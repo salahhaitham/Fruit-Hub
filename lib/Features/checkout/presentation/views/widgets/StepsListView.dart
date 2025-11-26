@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Stepslistview extends StatelessWidget {
-  const Stepslistview({Key? key, required this.currentIndex, required this.pageController}) : super(key: key);
+  const Stepslistview({Key? key, required this.currentIndex, required this.pageController, required this.ontap}) : super(key: key);
 
   final PageController pageController;
   final int currentIndex;
+  final ValueChanged ontap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,14 +18,7 @@ class Stepslistview extends StatelessWidget {
         return Expanded(
           child: GestureDetector(
               onTap: () {
-
-                if(context.read<OrderEntity>().payWithCash!=null) {
-                  pageController.animateToPage(
-                      index, duration: Duration(milliseconds: 300),
-                      curve: Curves.easeIn);
-                }else{
-                  showSnackBar(context, "برجاء اختيار طريقة دفع");
-                }
+ontap(index);
 
                 },
               child: Stepitem(text: getsteps()[index], index: (index+1).toString(), isActive: index<=currentIndex)),

@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 
 class CartHeader extends StatelessWidget {
   const CartHeader({
-    super.key,
+    super.key, required this.productsNuber,
   });
-
+final int productsNuber;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +17,7 @@ class CartHeader extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          'لديك 1 منتجات في سله التسوق',
+          'لديك$productsNuber  منتجات في سله التسوق',
           style: TextStyle(
             color: const Color(0xFF1B5E37) /* Green1-500 */,
             fontSize: 13,
