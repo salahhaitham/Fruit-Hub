@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:ecommerce_app/Features/Auth/manager/Auth-Cubits/SignInCubit/sign_in_cubit.dart';
+import 'package:ecommerce_app/Features/Auth/presentation/Views/widets/ResetPasswordView.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/Main_View.dart';
 import 'package:ecommerce_app/core/utils/App_TextStyles.dart';
 import 'package:ecommerce_app/core/utils/Colors.dart';
@@ -58,10 +59,15 @@ class _LoginPageBodyState extends State<SignInPageViewBody> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'نسيت كلمة المرور؟',
-                    style: AppTextStyles.heading13semiBold.copyWith(
-                      color: Color(0xFF2D9F5D),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, ForgotPasswordScreen.routename);
+                    },
+                    child: Text(
+                      'نسيت كلمة المرور؟',
+                      style: AppTextStyles.heading13semiBold.copyWith(
+                        color: Color(0xFF2D9F5D),
+                      ),
                     ),
                   ),
                 ],

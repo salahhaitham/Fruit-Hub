@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/repos/NotificationRepoImp.dart';
 import 'package:ecommerce_app/core/Services/DatabaseServices.dart';
 import 'package:ecommerce_app/core/Services/FireStoreServices.dart';
 import 'package:ecommerce_app/core/repos/orders/OrdersRepoImpl.dart';
@@ -15,5 +16,6 @@ void setupServiceLocator() {
   getIt.registerLazySingleton(() => ProductRepoImpl(getIt.get<FireStoreservices>()));
 
   getIt.registerLazySingleton(() => OrdersRepoImpl(getIt.get<FireStoreservices>()));
+  getIt.registerLazySingleton(() => NotificationRepoImp(getIt.get<FireStoreservices>()));
   getIt.registerLazySingleton(() => AuthRepoImp(getIt<FirebaseAuthService>(),getIt<FireStoreservices>()));
 }

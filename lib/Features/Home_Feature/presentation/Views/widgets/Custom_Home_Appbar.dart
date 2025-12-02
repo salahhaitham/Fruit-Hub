@@ -1,4 +1,5 @@
 
+import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/Notification_View.dart';
 import 'package:ecommerce_app/core/Helper_Functions/getuser.dart';
 import 'package:ecommerce_app/core/utils/App_TextStyles.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,7 +16,11 @@ class CustomHomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
 
-      trailing: Notification_Widget(),
+      trailing: GestureDetector(
+          onTap: () {
+         Navigator.pushNamed(context, NotificationView.routename);
+          },
+          child: Notification_Widget()),
       leading: Assets.images.profile.image(),
 
 

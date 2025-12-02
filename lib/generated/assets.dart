@@ -16,19 +16,29 @@ class Assets {
   static const String fontsCairoSemiBold = 'assets/fonts/Cairo-SemiBold.ttf';
   static const String imagesAppIcon = 'assets/images/app_icon.png';
   static const String imagesAppleIcon = 'assets/images/apple_icon.svg';
+  static const String imagesBox = 'assets/images/box.svg';
+  static const String imagesCalendar = 'assets/images/calendar.svg';
+  static const String imagesEdit = 'assets/images/Edit.svg';
+  static const String imagesExit = 'assets/images/exit.svg';
+  static const String imagesEye = 'assets/images/Eye.svg';
   static const String imagesFacebookIcon = 'assets/images/facebook_icon.svg';
+  static const String imagesFavourites = 'assets/images/favourites.svg';
   static const String imagesFeaturedItemBackground = 'assets/images/featuredItemBackground.svg';
   static const String imagesFeatureditem2 = 'assets/images/featureditem2.svg';
   static const String imagesFilter = 'assets/images/filter.png';
   static const String imagesFliter = 'assets/images/fliter.svg';
   static const String imagesGoogleIcon = 'assets/images/google_icon.svg';
+  static const String imagesHeart = 'assets/images/heart.svg';
+  static const String imagesLotus = 'assets/images/lotus.svg';
   static const String imagesNotification = 'assets/images/notification.svg';
+  static const String imagesOIP = 'assets/images/OIP.webp';
   static const String imagesPageViewItem1Image = 'assets/images/pageViewItem1_image.svg';
   static const String imagesPageviewItem2Background = 'assets/images/pageviewItem2_background.svg';
   static const String imagesPageviewItem2Image = 'assets/images/pageviewItem2_image.svg';
   static const String imagesPageviewitem1Backgroudimage = 'assets/images/pageviewitem1_backgroudimage.svg';
   static const String imagesPlant = 'assets/images/plant.svg';
   static const String imagesProfile = 'assets/images/profile.png';
+  static const String imagesProxyImage = 'assets/images/proxy-image.jpeg';
   static const String imagesSearchNormal = 'assets/images/search-normal.svg';
   static const String imagesSearchicon = 'assets/images/searchicon.svg';
   static const String imagesSearchicon2 = 'assets/images/searchicon2.svg';
@@ -36,6 +46,8 @@ class Assets {
   static const String imagesSplashBottom = 'assets/images/splash_bottom.svg';
   static const String imagesSplashIcon = 'assets/images/splashIcon.svg';
   static const String imagesTrash = 'assets/images/trash.svg';
+  static const String imagesUser = 'assets/images/user.svg';
+  static const String imagesVector = 'assets/images/Vector.svg';
   static const String imagesWatermelonTest = 'assets/images/watermelon_test.png';
 
 }

@@ -29,22 +29,17 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        return CartCubit();
-      },
-      child: Scaffold(
-        bottomNavigationBar: CustomBottomNavBar(
-          currentIndex: currentIndex,
-          onTabChanged: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-        ),
-        body: SafeArea(
-          child: MainViewBody(screens: screens, currentIndex: currentIndex),
-        ),
+    return Scaffold(
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: currentIndex,
+        onTabChanged: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+      ),
+      body: SafeArea(
+        child: MainViewBody(screens: screens, currentIndex: currentIndex),
       ),
     );
   }
@@ -78,7 +73,7 @@ class MainViewBody_BlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CartCubit,AddProductState>(
+    return BlocListener<CartCubit,CartcubitState>(
         listener: (context, state) {
           if(state is ProductAdded){
 

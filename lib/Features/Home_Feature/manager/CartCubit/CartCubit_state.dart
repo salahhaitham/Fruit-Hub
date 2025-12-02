@@ -1,9 +1,9 @@
 part of 'Cart_cubit.dart';
 
 @immutable
-sealed class AddProductState {}
+sealed class CartcubitState {}
 
-final class AddProductInitial extends AddProductState {}
-final class ProductAdded extends AddProductState {}
-final class ProductRemoved extends AddProductState {}
-final class ProductCountDecrease extends AddProductState {}
+final class AddProductInitial extends CartcubitState {}
+final class ProductAdded extends CartcubitState {}
+final class ProductRemoved extends CartcubitState {}
+final class ProductCountDecrease extends CartcubitState {}

@@ -12,7 +12,7 @@ class GridViewFruitItem_BlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductsCubit, getProductsState>(
+    return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
 
         if(state is getProductsSuccess){

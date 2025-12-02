@@ -48,6 +48,26 @@ class ProductRepoImpl extends ProductRepo {
       return left(Serverfailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<ProductEntity>>> getSearchedproducts(String text) async{
+    try {
+      var data = await databaseServices.getdata(
+        path: Backend_EndPoints.Kproducts,
+        query: {
+          'search':text
+        },
+      );
+      List<Map<String, dynamic>> productData = (data as List)
+          .cast<Map<String, dynamic>>();
+      var products = productData
+          .map((e) => productmodel.fromjson(e).toEntity())
+          .toList();
+      return right(products);
+    } on Exception catch (e) {
+      return left(Serverfailure(e.toString()));
+    }
+  }
 }
 
 /*

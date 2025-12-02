@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 
 part 'CartCubit_state.dart';
 
-class CartCubit extends Cubit<AddProductState> {
+class CartCubit extends Cubit<CartcubitState> {
   CartCubit() : super(AddProductInitial());
 
   CartEntity cartEntity = CartEntity([]);

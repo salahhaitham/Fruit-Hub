@@ -22,43 +22,51 @@ class _AddressSectionState extends State<AddressSection> with AutomaticKeepAlive
       builder: (context, value, child) =>  Form(
         key: widget.formKey,
       autovalidateMode: value,
-        child: Column(
-            children: [
-             SizedBox(height: 25,),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressOrderEntity!.name=value!;
-                },
-                hintText:'الاسم كامل',),
-              SizedBox(height: 8,),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressOrderEntity!.email=value!;
-                },
-                hintText:'البريد الالكتروني',),
-              SizedBox(height: 8,),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressOrderEntity!.address=value!;
-                },
-                hintText:'العنوان',),
-              SizedBox(height: 8,),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressOrderEntity!.city=value!;
-                },
-                hintText:'المدينة',),
-              SizedBox(height: 8,),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressOrderEntity!.floorNumber=value!;
-                },
-                hintText:'رقم الطابق.رقم الشقة..',),
+        child: SingleChildScrollView(
+          child: Column(
+              children: [
+               SizedBox(height: 25,),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.read<OrderEntity>().shippingAddressOrderEntity!.name=value!;
+                  },
+                  hintText:'الاسم كامل',),
+                SizedBox(height: 8,),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.read<OrderEntity>().shippingAddressOrderEntity!.email=value!;
+                  },
+                  hintText:'البريد الالكتروني',),
+                SizedBox(height: 8,),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.read<OrderEntity>().shippingAddressOrderEntity!.address=value!;
+                  },
+                  hintText:'العنوان',),
+                SizedBox(height: 8,),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.read<OrderEntity>().shippingAddressOrderEntity!.city=value!;
+                  },
+                  hintText:'المدينة',),
+                SizedBox(height: 8,),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.read<OrderEntity>().shippingAddressOrderEntity!.floorNumber=value!;
+                  },
+                  hintText:'رقم الطابق.رقم الشقة..',),
+                SizedBox(height: 8,),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.read<OrderEntity>().shippingAddressOrderEntity!.phoneNumber=value!;
+                  },
+                  hintText:'رقم الهاتق',),
 
-              SizedBox(height: 8,),
+                SizedBox(height: 8,),
 
-            ],
+              ],
 
+          ),
         ),
       ),
     );

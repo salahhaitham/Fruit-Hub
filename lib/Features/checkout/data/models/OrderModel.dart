@@ -35,6 +35,9 @@ final  List<OrderProductModel> orderProducts;
   }
   
   toJson() {
+    final now = DateTime.now();
+
+    final formattedDate = "${now.year}-${now.month.toString().padLeft(2,'0')}-${now.day.toString().padLeft(2,'0')}";
     return {
       "totalPrice": totalPrice,
       "uid": uId,
@@ -42,7 +45,8 @@ final  List<OrderProductModel> orderProducts;
       "orderdata": orderProducts.map((e) => e.toJson()).toList(),
       "paymentmethod": paymentMethod,
       "status":"pending",
-       "orderid":orderId
+       "orderid":orderId,
+       "orderdate":formattedDate,
     };
   }
 }

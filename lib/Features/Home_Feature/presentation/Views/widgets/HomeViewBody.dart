@@ -1,7 +1,9 @@
 
 import 'package:ecommerce_app/Features/Home_Feature/manager/products_cubit/products_cubit.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/GridView_FruitItem.dart';
+import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/search/SearchVew.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'BestSellerHeader.dart';
@@ -36,7 +38,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             child: Column(children: [
               CustomHomeAppBar(),
               SizedBox(height: 12,),
-              Searchtextfield(),
+               Searchtextfield(),
               SizedBox(height: 12,),
               Featuredlistview(),
               SizedBox(height: 12,),

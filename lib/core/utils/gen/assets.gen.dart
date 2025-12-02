@@ -1,5 +1,3 @@
-// dart format width=80
-
 /// GENERATED CODE - DO NOT MODIFY BY HAND
 /// *****************************************************
 ///  FlutterGen
@@ -7,12 +5,24 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: deprecated_member_use,directives_ordering,implicit_dynamic_list_literal,unnecessary_import
+// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/Edit.svg
+  String get edit => 'assets/images/Edit.svg';
+
+  /// File path: assets/images/Eye.svg
+  String get eye => 'assets/images/Eye.svg';
+
+  /// File path: assets/images/OIP.webp
+  AssetGenImage get oip => const AssetGenImage('assets/images/OIP.webp');
+
+  /// File path: assets/images/Vector.svg
+  String get vector => 'assets/images/Vector.svg';
 
   /// File path: assets/images/app_icon.png
   AssetGenImage get appIcon =>
@@ -24,8 +34,20 @@ class $AssetsImagesGen {
   /// Directory path: assets/images/bottomNav
   $AssetsImagesBottomNavGen get bottomNav => const $AssetsImagesBottomNavGen();
 
+  /// File path: assets/images/box.svg
+  String get box => 'assets/images/box.svg';
+
+  /// File path: assets/images/calendar.svg
+  String get calendar => 'assets/images/calendar.svg';
+
+  /// File path: assets/images/exit.svg
+  String get exit => 'assets/images/exit.svg';
+
   /// File path: assets/images/facebook_icon.svg
   String get facebookIcon => 'assets/images/facebook_icon.svg';
+
+  /// File path: assets/images/favourites.svg
+  String get favourites => 'assets/images/favourites.svg';
 
   /// File path: assets/images/featuredItemBackground.svg
   String get featuredItemBackground =>
@@ -42,6 +64,12 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/google_icon.svg
   String get googleIcon => 'assets/images/google_icon.svg';
+
+  /// File path: assets/images/heart.svg
+  String get heart => 'assets/images/heart.svg';
+
+  /// File path: assets/images/lotus.svg
+  String get lotus => 'assets/images/lotus.svg';
 
   /// File path: assets/images/notification.svg
   String get notification => 'assets/images/notification.svg';
@@ -66,6 +94,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/profile.png
   AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
 
+  /// File path: assets/images/proxy-image.jpeg
+  AssetGenImage get proxyImage =>
+      const AssetGenImage('assets/images/proxy-image.jpeg');
+
   /// File path: assets/images/search-normal.svg
   String get searchNormal => 'assets/images/search-normal.svg';
 
@@ -87,36 +119,51 @@ class $AssetsImagesGen {
   /// File path: assets/images/trash.svg
   String get trash => 'assets/images/trash.svg';
 
+  /// File path: assets/images/user.svg
+  String get user => 'assets/images/user.svg';
+
   /// File path: assets/images/watermelon_test.png
   AssetGenImage get watermelonTest =>
       const AssetGenImage('assets/images/watermelon_test.png');
 
   /// List of all assets
   List<dynamic> get values => [
-    appIcon,
-    appleIcon,
-    facebookIcon,
-    featuredItemBackground,
-    featureditem2,
-    filter,
-    fliter,
-    googleIcon,
-    notification,
-    pageViewItem1Image,
-    pageviewItem2Background,
-    pageviewItem2Image,
-    pageviewitem1Backgroudimage,
-    plant,
-    profile,
-    searchNormal,
-    searchicon,
-    searchicon2,
-    settings,
-    splashIcon,
-    splashBottom,
-    trash,
-    watermelonTest,
-  ];
+        edit,
+        eye,
+        oip,
+        vector,
+        appIcon,
+        appleIcon,
+        box,
+        calendar,
+        exit,
+        facebookIcon,
+        favourites,
+        featuredItemBackground,
+        featureditem2,
+        filter,
+        fliter,
+        googleIcon,
+        heart,
+        lotus,
+        notification,
+        pageViewItem1Image,
+        pageviewItem2Background,
+        pageviewItem2Image,
+        pageviewitem1Backgroudimage,
+        plant,
+        profile,
+        proxyImage,
+        searchNormal,
+        searchicon,
+        searchicon2,
+        settings,
+        splashIcon,
+        splashBottom,
+        trash,
+        user,
+        watermelonTest
+      ];
 }
 
 class $AssetsImagesBottomNavGen {
@@ -160,12 +207,8 @@ class $AssetsImagesBottomNavBoldGen {
   String get userBold => 'assets/images/bottomNav/bold/user_bold.svg';
 
   /// List of all assets
-  List<String> get values => [
-    categoriesBold,
-    homeBold,
-    shoppingCartBold,
-    userBold,
-  ];
+  List<String> get values =>
+      [categoriesBold, homeBold, shoppingCartBold, userBold];
 }
 
 class Assets {
@@ -179,14 +222,12 @@ class AssetGenImage {
     this._assetName, {
     this.size,
     this.flavors = const {},
-    this.animation,
   });
 
   final String _assetName;
 
   final Size? size;
   final Set<String> flavors;
-  final AssetGenImageAnimation? animation;
 
   Image image({
     Key? key,
@@ -241,23 +282,18 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({AssetBundle? bundle, String? package}) {
-    return AssetImage(_assetName, bundle: bundle, package: package);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
   }
 
   String get path => _assetName;
 
   String get keyName => _assetName;
-}
-
-class AssetGenImageAnimation {
-  const AssetGenImageAnimation({
-    required this.isAnimation,
-    required this.duration,
-    required this.frames,
-  });
-
-  final bool isAnimation;
-  final Duration duration;
-  final int frames;
 }
