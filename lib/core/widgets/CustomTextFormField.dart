@@ -7,6 +7,7 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputType? keyboardType;
   final bool isPassword;
   final Widget? icon;
+  final TextEditingController? textEditingController;
 
   const CustomTextFormField({
     super.key,
@@ -15,6 +16,7 @@ class CustomTextFormField extends StatefulWidget {
     this.keyboardType,
     this.isPassword = false,
     this.icon,
+    this.textEditingController
   });
 
   @override
@@ -35,7 +37,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       },
       maxLength: 40,
       buildCounter: (_, {required currentLength, required isFocused, maxLength}) => null,
-
+      controller: widget.textEditingController,
       obscureText: widget.isPassword && !_isVisible,
       onSaved: widget.onSaved,
       keyboardType: widget.keyboardType,

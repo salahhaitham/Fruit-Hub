@@ -1,11 +1,11 @@
 
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/NotificationViewBody.dart';
-import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/manager/Notification_Cubit/notification_cubit.dart';
-import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/repos/NotificationRepoImp.dart';
+import 'package:ecommerce_app/Features/Home_Feature/data/repos/NotificationRepoImp.dart';
 import 'package:ecommerce_app/core/Services/Getit_Service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../manager/Notification_Cubit/notification_cubit.dart';
 import 'Notificationview_BlocBuilder.dart';
 
 class NotificationView extends StatelessWidget {

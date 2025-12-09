@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/Features/Home_Feature/domain/entites/CartItemEntity.dart';
 
+
 class OrderProductModel{
   String name;
   num price;
@@ -20,6 +21,16 @@ class OrderProductModel{
         count: cartItem.count,
         code: cartItem.productEntity.code);
 }
+  factory OrderProductModel.fromMap(Map<String, dynamic> map) {
+    return OrderProductModel(
+      name: map["name"] ?? "",
+      price: map["price"] ?? 0,
+      imageUrl: map["imageurl"] ?? "",
+      count: map["count"] ?? 1,
+      code: map["code"] ?? "",
+    );
+  }
+
  toJson(){
     return {
       "name":name,

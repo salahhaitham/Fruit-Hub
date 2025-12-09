@@ -17,6 +17,16 @@ class ShippingAddressOrderModel {
    required this.floorNumber,
     required this.phoneNumber
   });
+  factory ShippingAddressOrderModel.fromMap(Map<String, dynamic> map) {
+    return ShippingAddressOrderModel(
+      name: map["name"] ?? "",
+      email: map["email"] ?? "",
+      address: map["address"] ?? "",
+      city: map["city"] ?? "",
+      floorNumber: map["floornumber"] ?? "",
+      phoneNumber: map["phonenumber"]??"",
+    );
+  }
 
   factory ShippingAddressOrderModel.fromEntity(ShippingAddressOrderEntity address){
     return ShippingAddressOrderModel(

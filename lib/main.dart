@@ -3,12 +3,14 @@ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/Helper_Functions/GenerateRoutes.dart';
 import 'package:ecommerce_app/core/Helper_Functions/blocobserver.dart';
 import 'package:ecommerce_app/core/Services/ShearedPreferenceSinglton.dart';
+import 'package:ecommerce_app/core/Services/SupabaseStorageService.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'Features/Home_Feature/manager/favorite_cubit/favorite_cubit.dart';
 import 'Features/Splash/presentation/Views/SplashView.dart';
 import 'core/Services/Getit_Service.dart';
 import 'firebase_options.dart';
@@ -17,6 +19,7 @@ import 'generated/l10n.dart';
 void main() async{
  WidgetsFlutterBinding.ensureInitialized();
 await SharedPrefernceSinglton.init();
+await SupabaseStorageService.initsubabase();
 await Hive.initFlutter();
  await Hive.openBox(KlastSearch);
 
@@ -33,8 +36,12 @@ class FruitHub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CartCubit(),
+    return MultiBlocProvider(
+      providers: [
+      BlocProvider(create: (context) => CartCubit(),),
+        BlocProvider(create: (context) => FavoriteProuductCubit()),
+
+      ],
       child: MaterialApp(
 
         theme: ThemeData(

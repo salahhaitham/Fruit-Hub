@@ -76,6 +76,26 @@ class productmodel {
 
     );
   }
+  factory productmodel.fromEntity(ProductEntity product) {
+    return productmodel(
+
+      price: product.price,
+      describtion: product.description,
+      code: product.code,
+      isfeatured:product.isfeatured,
+      imageUrl: product.imageUrl,
+      name: product.name,
+      avgRating: product.avgRating,
+      ratingCount:  product.ratingCount,
+      numberOfCalories:  product.numberOfCalories,
+      isOrganic:  product.isOrganic,
+      expirationsMonths:  product.expirationsMonths,
+      unitAmount:  product.unitAmount,
+      sellingCount:  0, reviews: [],
+
+
+    );
+  }
   Tomap() {
     return {
       'name': name,

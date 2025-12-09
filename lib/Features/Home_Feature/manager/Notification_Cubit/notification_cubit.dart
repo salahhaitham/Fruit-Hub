@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/NotificationModel.dart';
-import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/repos/NotificationRepo.dart';
+import 'package:ecommerce_app/Features/Home_Feature/domain/repos/NotificationRepo.dart';
 import 'package:meta/meta.dart';
 
 part 'notification_state.dart';

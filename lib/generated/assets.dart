@@ -19,6 +19,7 @@ class Assets {
   static const String imagesBox = 'assets/images/box.svg';
   static const String imagesCalendar = 'assets/images/calendar.svg';
   static const String imagesEdit = 'assets/images/Edit.svg';
+  static const String imagesEdit1 = 'assets/images/Edit1.svg';
   static const String imagesExit = 'assets/images/exit.svg';
   static const String imagesEye = 'assets/images/Eye.svg';
   static const String imagesFacebookIcon = 'assets/images/facebook_icon.svg';
@@ -32,6 +33,8 @@ class Assets {
   static const String imagesLotus = 'assets/images/lotus.svg';
   static const String imagesNotification = 'assets/images/notification.svg';
   static const String imagesOIP = 'assets/images/OIP.webp';
+  static const String imagesOrderItem2 = 'assets/images/orderItem2.png';
+  static const String imagesOrderitem1 = 'assets/images/orderitem1.svg';
   static const String imagesPageViewItem1Image = 'assets/images/pageViewItem1_image.svg';
   static const String imagesPageviewItem2Background = 'assets/images/pageviewItem2_background.svg';
   static const String imagesPageviewItem2Image = 'assets/images/pageviewItem2_image.svg';

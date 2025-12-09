@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/entities/reviewEntity.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProductEntity {
   String name;
@@ -31,4 +32,21 @@ class ProductEntity {
     required this.isfeatured,
     this.imageUrl,
   });
+  Map<String, dynamic> toJson() {
+    return {
+      "name": name,
+      "price": price,
+      "description": description,
+      "code": code,
+      "isfeatured": isfeatured,
+      "imageUrl": imageUrl,
+      "numberOfCalories": numberOfCalories,
+      "expirationsMonths": expirationsMonths,
+      "isOrganic": isOrganic,
+      "avgRating": avgRating,
+      "ratingCount": ratingCount,
+      "unitAmount": unitAmount,
+
+    };
+  }
 }

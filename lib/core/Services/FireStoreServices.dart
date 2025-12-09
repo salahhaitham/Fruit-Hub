@@ -53,6 +53,31 @@ class FireStoreservices implements DatabaseServices {
     return hasdata.exists;
   }
 
+  @override
+  Stream StreamData({required String path, Map<String, dynamic>? query}) async*{
+    Query<Map<String,dynamic>> dataQuery = firestore.collection(path);
+
+    if(query != null){
+      if(query['orderBy'] != null){
+        var orderByField = query['orderBy'];
+        var descending = query['descending'] == true;
+        dataQuery = dataQuery.orderBy(orderByField, descending: descending);
+      }
+      if(query['limit'] != null){
+        var limitField = query['limit'];
+        dataQuery = dataQuery.limit(limitField);
+      }
+    }
+    await for(var data in dataQuery.snapshots()){
+      yield data.docs.map((e)=>e.data()).toList();
+    }
+  }
+
+  @override
+  Future<void> updateData({required String path, String? documentid, required Map<String, dynamic> data}) async{
+    await firestore.collection(path).doc(documentid).update(data);
+
+  }
 
 
 

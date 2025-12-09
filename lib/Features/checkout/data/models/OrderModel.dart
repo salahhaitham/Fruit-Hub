@@ -12,7 +12,7 @@ final  String uId;
 final  ShippingAddressOrderModel shippingAddressOrderModel;
 final  List<OrderProductModel> orderProducts;
  final String paymentMethod;
- final String status;
+ final OrderStatus status;
  final String orderId;
 
   OrderModel({
@@ -26,13 +26,32 @@ final  List<OrderProductModel> orderProducts;
   factory OrderModel.fromOrderEntity(OrderEntity OrderEntity){
     return OrderModel(
       orderId: Uuid().v4(),
-      status: "status",
+      status: OrderStatus.pending,
       uId: OrderEntity.uId, 
         shippingAddressOrderModel: ShippingAddressOrderModel.fromEntity(OrderEntity.shippingAddressOrderEntity), 
         orderProducts: OrderEntity.cartEntity.cartItems.map((e)=>OrderProductModel.fromCartItemEntity(e)).toList(),
         paymentMethod: OrderEntity.payWithCash!? "cash":"paypal",
         totalPrice: OrderEntity.cartEntity.CaluculateTotalPrice());
   }
+ factory OrderModel.fromMap(Map<String, dynamic> map) {
+   return OrderModel(
+
+     status: OrderStatus.values.firstWhere(
+           (e) => e.name == map['status'],
+       orElse: () => OrderStatus.pending,
+     )
+     ,      totalPrice: map["totalPrice"] ?? 0,
+     uId: map["uid"] ?? "",
+     orderId: map['orderid'],
+     paymentMethod: map["paymentmethod"] ?? "cash",
+     shippingAddressOrderModel: ShippingAddressOrderModel.fromMap(map),
+     orderProducts: (map["orderdata"] as List<dynamic>? ?? [])
+         .map((e) => OrderProductModel.fromMap(e))
+         .toList(),
+
+
+   );
+ }
   
   toJson() {
     final now = DateTime.now();
@@ -44,9 +63,10 @@ final  List<OrderProductModel> orderProducts;
       "address": shippingAddressOrderModel.toJson(),
       "orderdata": orderProducts.map((e) => e.toJson()).toList(),
       "paymentmethod": paymentMethod,
-      "status":"pending",
+      "status":status.name,
        "orderid":orderId,
        "orderdate":formattedDate,
     };
   }
+
 }

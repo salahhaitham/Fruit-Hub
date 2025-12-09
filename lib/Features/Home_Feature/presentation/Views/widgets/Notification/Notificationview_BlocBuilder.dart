@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../../../../manager/Notification_Cubit/notification_cubit.dart';
 import 'NotificationViewBody.dart';
-import 'manager/Notification_Cubit/notification_cubit.dart';
 
 class Notificationview_BlocBuilder extends StatelessWidget {
   const Notificationview_BlocBuilder({

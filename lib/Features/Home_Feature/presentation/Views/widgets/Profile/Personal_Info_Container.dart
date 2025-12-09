@@ -6,10 +6,10 @@ import '../../../../../../core/utils/gen/assets.gen.dart';
 
 class Personal_Info_Container extends StatelessWidget {
   const Personal_Info_Container({
-    super.key, required this.peresonalText, required this.svgPicture,
+    super.key, required this.peresonalText,
   });
 final String peresonalText;
-final SvgPicture svgPicture;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +25,7 @@ final SvgPicture svgPicture;
                 style:AppTextStyles.body13Bold.copyWith(color: Colors.grey)
             ),
             Spacer(),
-            svgPicture,
+            Icon(Icons.edit),
           ],
         ),
       ),

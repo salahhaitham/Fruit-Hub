@@ -15,6 +15,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/Edit.svg
   String get edit => 'assets/images/Edit.svg';
 
+  /// File path: assets/images/Edit1.svg
+  String get edit1 => 'assets/images/Edit1.svg';
+
   /// File path: assets/images/Eye.svg
   String get eye => 'assets/images/Eye.svg';
 
@@ -74,6 +77,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/notification.svg
   String get notification => 'assets/images/notification.svg';
 
+  /// File path: assets/images/orderitem1.svg
+  String get orderitem1 => 'assets/images/orderitem1.svg';
+
   /// File path: assets/images/pageViewItem1_image.svg
   String get pageViewItem1Image => 'assets/images/pageViewItem1_image.svg';
 
@@ -129,6 +135,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<dynamic> get values => [
         edit,
+        edit1,
         eye,
         oip,
         vector,
@@ -147,6 +154,7 @@ class $AssetsImagesGen {
         heart,
         lotus,
         notification,
+        orderitem1,
         pageViewItem1Image,
         pageviewItem2Background,
         pageviewItem2Image,
