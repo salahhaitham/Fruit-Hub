@@ -66,7 +66,7 @@ class AuthRepoImp extends AuthRepo {
       );
       var userdata = await getUserData(userid: user.uid);
       SaveUserData(user: userdata);
-      return right(UserModel.fromfirebaseAuth(user));
+      return right(userdata);
     } on CustomException catch (e) {
       return left(Serverfailure(e.message));
     }

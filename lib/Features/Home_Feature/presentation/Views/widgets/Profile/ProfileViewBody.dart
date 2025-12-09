@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:ecommerce_app/Features/Auth/presentation/Views/Login_page.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Notification/Notification_View.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Profile/ProfileFeature.dart';
 import 'package:ecommerce_app/Features/Home_Feature/presentation/Views/widgets/Profile/favorite_view/FavoriteProductsView.dart';
@@ -11,6 +12,7 @@ import 'package:ecommerce_app/core/utils/App_TextStyles.dart';
 import 'package:ecommerce_app/core/utils/Colors.dart';
 import 'package:ecommerce_app/core/utils/gen/assets.gen.dart';
 import 'package:ecommerce_app/core/widgets/Custom_Button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -28,9 +30,10 @@ class ProfileViewBody extends StatefulWidget {
 }
 
 class _ProfileViewBodyState extends State<ProfileViewBody> {
+
   bool isloading = false;
   File? fileimage;
-  @override
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,18 +59,12 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                           shape: BoxShape.circle,
                         ),
                 child: ClipOval(
-                  child: fileimage != null
-                      ? Image.file(
-                    fileimage!,
-                    fit: BoxFit.cover,
-                  )
-                      : (getUser().profileImg != null
-                      ? Image.network(
-                    getUser().profileImg!,
-                    fit: BoxFit.cover,
-                  )
-                      : Icon(Icons.person, size: 40)), // أيقونة افتراضية لو مفيش صورة
-                ),
+              child: fileimage != null
+              ? Image.file(fileimage!, fit: BoxFit.cover)
+                : (getUser().profileImg != null && getUser().profileImg!.isNotEmpty
+            ? Image.network(getUser().profileImg!, fit: BoxFit.cover)
+            : Icon(Icons.person, size: 40)),
+    ),
 
                       ),
                       Positioned(
@@ -183,19 +180,29 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                  decoration: BoxDecoration(
                    color: Color(0xffEBF9F1),
                  ),
-                 child: Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   children: [
-                     Spacer(flex: 2,),
-                     Text(
-                       'تسجيل الخروج',
-                       textAlign: TextAlign.center,
-                       style: AppTextStyles.heading13semiBold.copyWith(color: App_colors.primarycolor)
-                     ),
-                     Spacer(flex: 1,),
-                     SvgPicture.asset(Assets.images.exit),
-                     Spacer(flex: 1,),
-                   ],
+                 child: GestureDetector(
+                   onTap: () async{
+                     await FirebaseAuth.instance.signOut();
+                     Navigator.pushNamedAndRemoveUntil(
+                       context,
+                       LoginPage.routename,
+                           (route) => false, // يمسح كل الـ routes اللي فاتت
+                     );
+                   },
+                   child: Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Spacer(flex: 2,),
+                       Text(
+                         'تسجيل الخروج',
+                         textAlign: TextAlign.center,
+                         style: AppTextStyles.heading13semiBold.copyWith(color: App_colors.primarycolor)
+                       ),
+                       Spacer(flex: 1,),
+                       SvgPicture.asset(Assets.images.exit),
+                       Spacer(flex: 1,),
+                     ],
+                   ),
                  ),
                ),
              ),

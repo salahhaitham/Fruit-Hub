@@ -31,7 +31,7 @@ class UserModel extends UserEntity {
       email:user.email,
       Uid:user.Uid,
       UserName:user.UserName,
-
+      profileImg: user.profileImg
     );
   }
   ToMab(){
